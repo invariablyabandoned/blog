@@ -34,7 +34,7 @@ Fast forward perhaps two years more and I still have that first post (and actual
 
 Today I bit the bullet and decided I needed to put something out there. I will talk about the motivations for doing so in a future post but this is already getting too long!
 
-I challenged myself to get the whole stack running in a few hours yesterday evening, so I would finally stop procrastinating and just post something. This was only possible by just forking a base that 11ty provides at [https://github.com/11ty/eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) which did most of the heavy lifting for me.
+I challenged myself to get the whole stack running in a few hours yesterday evening, so I would finally stop procrastinating and just post something. This was only possible by just forking a base that 11ty provides at [https://github.com/11ty/eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) which did most of the heavy lifting for me and using a terraform module I created in the past (hopefully the subject of a future blog post).
 
 The actual post about my `docker-react` project may indeed come soon but this is not it.
 
