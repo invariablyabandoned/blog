@@ -1,4 +1,10 @@
-# eleventy-base-blog v9
+# Invariably Abandoned
+
+Personal blog from Daniel.
+
+Built using 11ty and intended to progressively implement IndieWeb and potentially Gemini standards.
+
+# 11ty Docs
 
 A starter repository showing how to build a blog with the [Eleventy](https://www.11ty.dev/) site generator (using the [v3.0 release](https://github.com/11ty/eleventy/releases/tag/v3.0.0)).
 

@@ -59,15 +59,15 @@ export default async function(eleventyConfig) {
 		},
 		collection: {
 			name: "posts",
-			limit: 10,
+			limit: 20,
 		},
 		metadata: {
 			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
-			base: "https://example.com/",
+			title: "Invariably Abandoned",
+			subtitle: "Where my abondoned personal projects are remembered. As well as random thoughts and opinions.",
+			base: "https://invariablyabandoned.com/",
 			author: {
-				name: "Your Name"
+				name: "Daniel"
 			}
 		}
 	});
