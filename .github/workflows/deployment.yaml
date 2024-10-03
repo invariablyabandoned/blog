@@ -1,0 +1,67 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 20.8.0
+
+jobs:
+  staging-deployment:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.0
+
+      - name: Configure node
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Sync to S3 staging bucket
+        uses: keithweaver/aws-s3-github-action@v1.0.0
+        with:
+          command: sync
+          source: ./_site
+          destination: s3://${{ vars.AWS_BUCKET_NAME }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ vars.AWS_REGION }}
+
+  prodution-deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: staging-deployment
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.0
+
+      - name: Configure node
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Sync to S3 production bucket
+        uses: keithweaver/aws-s3-github-action@v1.0.0
+        with:
+          command: sync
+          source: ./_site
+          destination: s3://${{ vars.AWS_BUCKET_NAME }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ vars.AWS_REGION }}
