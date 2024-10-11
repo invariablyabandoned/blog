@@ -69,7 +69,7 @@ Since implementing this I have not pressed the `y` at all and it feels good.
 
 The next bigger feature I want to add is a simple CLI tool (maybe written in Rust as a learning oppurtunity) that handles the updating of keys for you. The issue with just overwriting the `authorized_keys` file with curl is if an issue occurs with the network or keys server, or if you remove a key from the config file accidently, it would be easy to lose remote access to a server. 
 
-It's for this eason I currently only run my overwrite manually, and check the results before terminating my ssh connection. I would love to run this on an hourly CRON so that if I want to introduce a new key it just gets rolled out to each of my servers. My thoughts are my CLI could have some safeguards, requiring manual override before removing an SSH key (and not updating anything if it gets a response it's not expecting from the server).
+It's for this reason I currently only run my overwrite manually, and check the results before terminating my ssh connection. I would love to run this on an hourly CRON so that if I want to introduce a new key it just gets rolled out to each of my servers. My thoughts are my CLI could have some safeguards, requiring manual override before removing an SSH key (and not updating anything if it gets a response it's not expecting from the server).
 
 Feel free to have a play with the project, or raise any issues if you have ideas for other features & improvements. You can find it at [https://github.com/danielemery/keys](https://github.com/danielemery/keys).
 
