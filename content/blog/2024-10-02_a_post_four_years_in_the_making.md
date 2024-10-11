@@ -1,7 +1,7 @@
 ---
 title: A post four years in the making.
 description: A post about why I have struggled to make my first blog post.
-date: 2024-10-03
+date: 2024-10-02
 tags: [steam of consciousness, blogs]
 ---
 
