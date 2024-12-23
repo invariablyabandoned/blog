@@ -1,0 +1,28 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 20.8.0
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Configure node
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Build
+        run: npm run build
